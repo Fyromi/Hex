@@ -5,8 +5,20 @@ public class Hex{
         if(Mode()==1)
             Classique();
         else if(Mode()==2)
-            Aleatoir();
+            Aleatoire();
         else
             Special();
+    }
+    public static int Mode(){
+        
+    }
+    public static void Classique() {
+        
+    }
+    public static void Special() {
+        
+    }
+    public static void Aleatoire() {
+        
     }
 }
