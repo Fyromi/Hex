@@ -49,6 +49,18 @@ public class Hex{
         }while((dimension<9)||( dimension >14));
 
         char[][] plateau = new char[dimension+3][2*dimension+2];
+
+        // Affichage du plateau
+        for(int colone = 0; colone<plateau.length; colone++){
+            
+            for(int ligne = 0;ligne<plateau[colone].length;ligne++){
+                System.out.print(plateau[colone][ligne]);
+            }
+            for(int ligne = 0;ligne<plateau[colone].length;ligne++){
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
     }
     public static void Special() {
         
