@@ -29,22 +29,25 @@ public class Hex{
             bMode =2;
         else
             bMode =3;
-        
-        sc.close();
 
         return bMode;
                 
     }
     
     public static void Classique() {
-        int[][] plateau = new int[5][5];
+        int dimension;
+        Scanner sc = new Scanner(System.in);
 
-        for(int i = 0;i<plateau.length;i++){
-            for(int j = 0;j<plateau[i].length;j++){
-                System.out.print(plateau[i][j]);
-            }
-            System.out.println();
-        }
+        // Recupère et verifie que l'entrée est comprise entre 9 et 14;
+        do{
+            System.out.print("Quelle est la dimension souhaitée pour le plateau (de 9x9 jusqu’à 14x14)\n>> ");
+                dimension = sc.nextInt();
+            
+            if(dimension<9||dimension>14)
+                System.out.println("ERREUR : la dimension n'est pas admise\n");
+    
+        }while((dimension<9)||( dimension >14));
+
     }
     public static void Special() {
         
