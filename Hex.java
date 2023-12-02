@@ -48,6 +48,7 @@ public class Hex{
     
         }while((dimension<9)||( dimension >14));
 
+        char[][] plateau = new char[dimension+3][2*dimension+2];
     }
     public static void Special() {
         
