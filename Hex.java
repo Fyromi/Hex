@@ -34,6 +34,9 @@ public class Hex{
                 
     }
     
+    /**
+     * 
+     */
     public static void Classique() {
         int dimension;
         Scanner sc = new Scanner(System.in);
@@ -48,46 +51,52 @@ public class Hex{
     
         }while((dimension<9)||( dimension >14));
 
-        char[][] plateau = new char[dimension+3][2*dimension+2];
+        char[][] plateau = new char[dimension+3][dimension+2];
 
-        //Remplis le plateau de points
-        char lettre='A';
-        char nombre='1';
+        //Remplissage du Plateau
         
-        for(int ligne = 0; ligne<plateau.length; ligne++){
+        char lettre='A';
+        for(int ligne = 0; ligne<plateau.length; ligne++){ 
             for(int colone = 1; colone < plateau[ligne].length-1 ; colone++){
+
+                plateau[ligne][colone+1]='*';
                 
-                plateau[ligne][colone]='█';
-
-                //affiche les nombre et les underscor a partir de la 3e colonne
-                if(colone!=1 && colone !=2){
-                    if(ligne ==1){
-                        plateau[0][colone] = lettre;
-                        plateau[1][colone]='-';
+                //affiche les lettre et les underscor a partir de la 3e colonne
+                if(colone!=0 && ligne==1 && colone+1 <= plateau[ligne].length-1){
+                        plateau[0][colone+1] = lettre;
+                        plateau[1][colone+1]='─';
                         lettre++;
-                    }
                 }
+                if(ligne==plateau.length-1)
+                        plateau[ligne][colone+1]='─';
             }
-
-            //affiche les lettre et les slash a partir de la 3e ligne
-            if(ligne!=0 && ligne !=1){
-                plateau[ligne][1]=nombre;
-                plateau[ligne][2]=92;
-                nombre++;
-            }
+                //affiche les slash au début de chaque ligne
+                if(ligne!=plateau.length-1 && ligne !=1 && ligne !=0)
+                    plateau[ligne][1]=92;
+                plateau[plateau.length-1][1]=' ';  
         }
-
-        // Affichage du plateau
-        for(int colone = 0; colone<plateau.length; colone++){
-            
-            for(int ligne = 0;ligne<plateau[colone].length;ligne++){
-                System.out.print(plateau[colone][ligne]);
-            }
-            for(int ligne = 0;ligne<plateau[colone].length;ligne++){
+        
+        //Affichage du plateau
+        for(int ligne = 0;ligne<plateau.length;ligne++){
+            if(ligne==1)
+                System.out.print(" ");
+            for(int nb_espace = 1 ; nb_espace < ligne ; nb_espace++){
                 System.out.print(" ");
             }
-            System.out.println();
+            for(int colone = 0;colone<plateau[ligne].length;colone++){
+                System.out.print(plateau[ligne][colone]);
+            }
+
+            if (ligne>=2 && ligne!=plateau.length-1) {
+                System.out.print((char)92);
+                System.out.println(" "+(ligne-1));
+            }
+            else
+                System.out.println();
         }
+        System.err.println();
+        System.out.println("Joueur 1 : Indiquer les coordoner de votre pion \n>> ");
+        
     }
     public static void Special() {
         
