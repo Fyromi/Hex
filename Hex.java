@@ -50,6 +50,33 @@ public class Hex{
 
         char[][] plateau = new char[dimension+3][2*dimension+2];
 
+        //Remplis le plateau de points
+        char lettre='A';
+        char nombre='1';
+        
+        for(int ligne = 0; ligne<plateau.length; ligne++){
+            for(int colone = 1; colone < plateau[ligne].length-1 ; colone++){
+                
+                plateau[ligne][colone]='█';
+
+                //affiche les nombre et les underscor a partir de la 3e colonne
+                if(colone!=1 && colone !=2){
+                    if(ligne ==1){
+                        plateau[0][colone] = lettre;
+                        plateau[1][colone]='-';
+                        lettre++;
+                    }
+                }
+            }
+
+            //affiche les lettre et les slash a partir de la 3e ligne
+            if(ligne!=0 && ligne !=1){
+                plateau[ligne][1]=nombre;
+                plateau[ligne][2]=92;
+                nombre++;
+            }
+        }
+
         // Affichage du plateau
         for(int colone = 0; colone<plateau.length; colone++){
             
